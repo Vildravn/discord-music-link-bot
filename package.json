@@ -1,0 +1,25 @@
+{
+  "name": "discord-music-link-bot",
+  "version": "1.0.0",
+  "description": "Discord bot that links music in text chat",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/val-ravn/discord-music-link-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "music",
+    "link",
+    "bot"
+  ],
+  "author": "Valravn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/val-ravn/discord-music-link-bot/issues"
+  },
+  "homepage": "https://github.com/val-ravn/discord-music-link-bot#readme"
+}
