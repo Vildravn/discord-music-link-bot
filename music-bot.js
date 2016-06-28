@@ -15,17 +15,29 @@ bot.on('ready', function () {
 
 // Runs everytime bot sees a new message
 bot.on('message', function (message) {
+    var mention = '<@' + bot.user.id + '>';
 
-    // This section only runs if the configured bot owner sends the message
-    // Useful for owner-only commands 
-    if (message.author.id == botOwner) {
-        
-        // An example of a command 
-        if (message.content == "say hello") {
-            bot.sendMessage(message.channel, "Hello");
+    // All commands should start with bot mention
+    if (message.content.startsWith(mention)) {
+        // Remove the mention from the message and convert the rest to lowercase
+        var command = message.content.substring(mention.length + 1).toLowerCase();
+
+        // This section only runs if the configured bot owner sends the message
+        // Useful for owner-only commands
+        if (message.author.id == botOwner) {
+            // Example of a command
+            if (command.startsWith('say')) {
+                var params = command.substring('say'.length + 1).split(';');
+
+                if (params[0] == '') {
+                    bot.sendMessage(message.channel, 'Missing parameter');
+                } else {
+                    bot.sendMessage(message.channel, params[0]);
+                }
+            }
         }
     }
-})
+});
 
 // Log in the bot
 bot.loginWithToken(discordToken);
